@@ -29,7 +29,8 @@ class _ProductListViewState extends State<ProductListView> {
       products = fetchedProducts;
     });
   }
-  void deleteProduct(String id){
+
+  void deleteProduct(String id) {
     productController.deleteProduct(id);
   }
 
@@ -37,10 +38,10 @@ class _ProductListViewState extends State<ProductListView> {
   Widget build(BuildContext context) {
     setProduct();
     return Scaffold(
-      // appBar: AppBar(),
-      body: Container(
-        padding: EdgeInsets.all(15),
-        child: Stack(
+        // appBar: AppBar(),
+        body: Container(
+      padding: EdgeInsets.all(15),
+      child: Stack(
         children: [
           Column(
             children: [
@@ -66,15 +67,17 @@ class _ProductListViewState extends State<ProductListView> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => EditProduct(
-                                id: products[index].id,
-                                name: products[index].name,
-                                category: products[index].category,
-                                price: products[index].price,
-                                image: products[index].image)),
+                                  id: products[index].id,
+                                  name: products[index].name,
+                                  category: products[index].category,
+                                  price: products[index].price,
+                                  image: products[index].image)),
                         );
                       },
                       deletePress: () {
                         deleteProduct(products[index].id);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Deleted sucessfully!')));
                       },
                     );
                   },
@@ -93,11 +96,10 @@ class _ProductListViewState extends State<ProductListView> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                backgroundColor: Colors.grey[200]
-              ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  backgroundColor: Colors.grey[200]),
               child: Text(
                 "Add product",
                 style: TextStyle(
@@ -110,8 +112,6 @@ class _ProductListViewState extends State<ProductListView> {
           ),
         ],
       ),
-      )
-      
-    );
+    ));
   }
 }
