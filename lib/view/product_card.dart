@@ -45,7 +45,7 @@ class ProducCard extends StatelessWidget {
             child: Text(
               name,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: TextStyle(fontSize: 25, color: Colors.black),
             ),
           ),
           Flexible(

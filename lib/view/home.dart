@@ -37,7 +37,7 @@ class _ProductListViewState extends State<ProductListView> {
   Widget build(BuildContext context) {
     setProduct();
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Container(
         padding: EdgeInsets.all(15),
         child: Stack(
@@ -54,6 +54,7 @@ class _ProductListViewState extends State<ProductListView> {
                     childAspectRatio: 1.5,
                   ),
                   itemCount: products.length,
+                  padding: EdgeInsets.only(bottom: 100),
                   itemBuilder: (context, index) {
                     return ProducCard(
                       name: products[index].name,
@@ -95,11 +96,13 @@ class _ProductListViewState extends State<ProductListView> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
+                backgroundColor: Colors.grey[200]
               ),
               child: Text(
                 "Add product",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                   color: const Color.fromARGB(255, 204, 77, 136),
                 ),
               ),
