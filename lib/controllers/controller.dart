@@ -14,6 +14,18 @@ class ProductController {
     }
     return products;
   }
+  
+  Future<bool> login(String username, String password) async{
+    QuerySnapshot querySnapshot = await _db.collection('users').get();
+    UserModel userModel;
+    for (var doc in querySnapshot.docs) {
+      userModel = UserModel.fromMap(doc.id, doc.data() as Map<String, dynamic>);
+      if (userModel.username == username && userModel.password == password) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   Stream<List<ProductModel>> fetchProducts() {
     return _db.collection('products').snapshots().map((snapshot) {

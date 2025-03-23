@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gki/controllers/controller.dart';
-import '../view/home.dart';
 import '../models/model.dart';
 
 class EditProduct extends StatefulWidget {
@@ -23,6 +22,7 @@ class EditProductState extends State<EditProduct>{
   TextEditingController imageProduct = TextEditingController();
 
   ProductController productController = ProductController();
+  // chỉnh lưu trong csdl
   void editProduct(){
     productController.updateProduct(ProductModel(
       id: widget.id, 
@@ -35,6 +35,7 @@ class EditProductState extends State<EditProduct>{
   
   @override
   Widget build(BuildContext context) {
+    // hiển thị
     productName.text = widget.name;
     categoryName.text = widget.category;
     priceProduct.text = widget.price;

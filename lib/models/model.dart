@@ -26,3 +26,15 @@ class ProductModel {
     };
   }
 }
+class UserModel{
+  String id,username, password;
+  UserModel({required this.id, required this.username, required this.password});
+
+  factory UserModel.fromMap(String id, Map<String, dynamic> users){
+    return UserModel(
+      id: id,
+      username: users['name'] ?? '', 
+      password: users['password'] ?? '',
+    );
+  }
+}
